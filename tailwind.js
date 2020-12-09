@@ -76,10 +76,11 @@ module.exports = {
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       bounce: "bounce 1s infinite",
     },
-    backgroundColor: {
+    backgroundColor: (theme) => ({
       primary: "var(--color-bg-primary)",
       secondary: "var(--color-bg-secondary)",
-    },
+      ...theme("colors"),
+    }),
     backgroundImage: {
       none: "none",
       "gradient-to-t": "linear-gradient(to top, var(--tw-gradient-stops))",
@@ -640,11 +641,12 @@ module.exports = {
       1: "1",
       2: "2",
     },
-    textColor: {
+    textColor: (theme) => ({
       primary: "var(--color-text-primary)",
       secondary: "var(--color-text-secondary)",
       inverse: "var(--color-text-inverse)",
-    },
+      ...theme("colors"),
+    }),
     textOpacity: (theme) => theme("opacity"),
     transitionDuration: {
       DEFAULT: "150ms",
