@@ -1,23 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
+import { ProfileCard } from "./components/ProfileCard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p class="bg-blue-100">
-          Edit <code> src / App.js </code> and save to reload.{" "}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React{" "}
-        </a>{" "}
-      </header>
+    <div className="App theme-light container mx-auto px-20 py-20">
+      <ProfileCard />
     </div>
   );
 }

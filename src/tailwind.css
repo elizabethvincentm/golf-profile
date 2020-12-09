@@ -1,3 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.theme-light {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #020202;
+
+  --color-border-primary: #c0c6cb;
+  --color-border-secondary: #e6e8eb;
+  --color-divider: #dadee2;
+  --color-grid-lines: #c0c6cb;
+
+  --color-text-primary: #001521;
+  --color-text-secondary: #46555f;
+  --color-text-inverse: #ffffff;
+}
+
+.theme-dark {
+  --color-bg-primary: #001521;
+  --color-bg-secondary: #122531;
+
+  --color-border-primary: #001521;
+  --color-border-secondary: #2a3b46;
+  --color-divider: #2a3b46;
+  --color-grid-lines: #46555f;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a3abb2;
+  --color-text-inverse: #001521;
+}
