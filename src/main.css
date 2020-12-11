@@ -29318,6 +29318,22 @@ video {
   --color-text-inverse: #001521;
 }
 
+.theme-light .graph-bar-tick {
+  fill: #dadee2;
+}
+
+.theme-dark .graph-bar-tick {
+  fill: #2a3b46;
+}
+
+.theme-light .graph-text {
+  fill: #001521;
+}
+
+.theme-dark .graph-text {
+  fill: #ffffff;
+}
+
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;
