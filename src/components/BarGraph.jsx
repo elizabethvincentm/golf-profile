@@ -18,7 +18,7 @@ export const BarGraph = ({ dataset }) => {
     const paddingTop = 2;
 
     const svgWidth = 294;
-    const svgHeight = 300;
+    const svgHeight = 96;
     const barGraphWidth = 200;
     const barGraphMarginHorizontal = 6 + (svgWidth - barGraphWidth) / 2;
 
@@ -50,7 +50,7 @@ export const BarGraph = ({ dataset }) => {
         "transform",
         (d, i) =>
           `translate(${barGraphMarginHorizontal},${
-            i * (tickHeight + tickMarginBottom)
+            i * (axisMarkerHeight + tickMarginBottom)
           })`
       )
       .selectAll("rect")
@@ -83,7 +83,10 @@ export const BarGraph = ({ dataset }) => {
                 (Math.floor(Math.abs(d)) - 1) * tickMarginRight)) +
           barGraphMarginHorizontal
       )
-      .attr("y", (d, i) => i * (tickHeight + tickMarginBottom) + paddingTop)
+      .attr(
+        "y",
+        (d, i) => i * (axisMarkerHeight + tickMarginBottom) + paddingTop
+      )
       .attr("fill", "#56A7FF") //gradient to be added
       .attr("width", (d) => {
         console.log(Math.floor(Math.abs(d)));
@@ -107,7 +110,7 @@ export const BarGraph = ({ dataset }) => {
           tickMarginRight +
           barGraphMarginHorizontal
       )
-      .attr("y", (d, i) => i * (tickHeight + tickMarginBottom))
+      .attr("y", (d, i) => i * (axisMarkerHeight + tickMarginBottom))
       .attr("height", axisMarkerHeight)
       .attr("width", axisMarkerWidth)
       .attr("class", "graph-text");
@@ -120,7 +123,7 @@ export const BarGraph = ({ dataset }) => {
       .enter()
       .append("text")
       .text((d) => d.label)
-      .attr("y", (d, i) => `${i * (tickHeight + tickMarginBottom) + 10}`)
+      .attr("y", (d, i) => `${i * (axisMarkerHeight + tickMarginBottom) + 10}`)
       .attr("x", 0)
       .attr("class", "text-sm graph-text");
 
@@ -132,12 +135,12 @@ export const BarGraph = ({ dataset }) => {
       .enter()
       .append("text")
       .text((d) => d)
-      .attr("y", (d, i) => `${i * (tickHeight + tickMarginBottom) + 10}`)
+      .attr("y", (d, i) => `${i * (axisMarkerHeight + tickMarginBottom) + 10}`)
       .attr(
         "x",
         (d) => barGraphMarginHorizontal + barGraphWidth + 6 + (d > 0 ? 5 : 0)
       )
       .attr("class", "font-medium text-sm graph-text");
   };
-  return <div id="bargraph" className="py-4"></div>;
+  return <div id="bargraph" className="py-4 px-4.5"></div>;
 };

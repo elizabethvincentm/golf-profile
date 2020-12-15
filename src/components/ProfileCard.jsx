@@ -1,8 +1,8 @@
+import { useState, useEffect } from "react";
+
 import { Card } from "./Card";
 import { CardHeader } from "./CardHeader";
 import { BarGraph } from "./BarGraph";
-import { LineChart } from "./LineChart";
-import { useState, useEffect } from "react";
 
 const barGraphLabels = {
   SG_TEE: "SG OTT",
@@ -10,11 +10,14 @@ const barGraphLabels = {
   SG_ARG: "SG ARG",
   SG_PUTT: "SG PUT",
 };
+
 export const ProfileCard = ({ profile }) => {
   const [barGraphData, setBarGraphData] = useState(null);
+
   useEffect(() => {
     barGraphDataConstructor();
   }, [profile]);
+
   const barGraphDataConstructor = () => {
     const data = profile.SGCategories.map((category) => ({
       label: barGraphLabels[category.SG_Category_Detail],
@@ -22,6 +25,7 @@ export const ProfileCard = ({ profile }) => {
     }));
     setBarGraphData(data);
   };
+
   return (
     <Card>
       <CardHeader
@@ -31,16 +35,12 @@ export const ProfileCard = ({ profile }) => {
         handicap={profile.Handicap}
         sgTotal={profile.SGTotal}
       />
-      <div class="flex justify-center">
-        {/* <LineChart data={data} width={400} height={300} /> */}
-        {/* <div className="py-4 pr-2 text-sm leading-none">
-          <div className="mb-2">SG OTT</div>
-          <div className="mb-2">SG APP</div>
-          <div className="mb-2">SG ARG</div>
-          <div className="mb-2">SG PUT</div>
-        </div> */}
-        <BarGraph dataset={barGraphData} />
+      <BarGraph dataset={barGraphData} />
+      <div className="px-4.5 py-3.5 text-xs text-left">
+        <span className="text-secondary">Latest Activity: </span>
+        <span className="font-medium text-primary">68 (-4), The Shire, UK</span>
       </div>
+      <div></div>
     </Card>
   );
 };
